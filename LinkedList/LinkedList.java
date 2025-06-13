@@ -28,6 +28,36 @@ public class LinkedList {
 
     }
 
+    //For adding Node at the beginning of LinkedList
+     public void addFirst(int data) {
+     Node newNode =new Node(data);
+     newNode.next=head;
+     head=newNode;
+   }
+     
+   //For deleting a node from Linked List
+   public void deleteNode(int data){
+     Node current=head;
+     while(current.next!=null && current.next.data!=data){
+        current=current.next;
+     }
+     if(current.next!=null){
+        current.next=current.next.next;
+     }
+   }
+    
+   //For searching a value in Linked List
+   public boolean search(int data){
+     Node current=head;
+     while(current!=null){
+        if(current.data==data){
+            return true;
+        }
+        current=current.next;
+     }
+    return false;
+   }
+
     // For printing the Linked List
     public void display(){
         Node current=head;
@@ -47,8 +77,10 @@ public class LinkedList {
     ll.insert(50);
     ll.insert(60);
 
-
+    ll.addFirst(5);
+    ll.deleteNode(30);
     ll.display();
+    ll.search(2);
 
    }
 
